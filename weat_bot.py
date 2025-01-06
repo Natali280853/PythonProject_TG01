@@ -7,10 +7,9 @@ from aiogram.filters import Command
 from aiogram.enums import ParseMode
 # from aiogram.utils import executor
 from aiogram.client.default import DefaultBotProperties
-from config import TOKEN
+from config import TOKEN, WEATHER_API_KEY
 
-API_KEY = '272009fd696656bbaea88b8d974dd950'  # Замените на ваш ключ API
-# TELEGRAM_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'  # Замените на токен вашего бота
+# TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'  # Замените на токен вашего бота
 CITY = 'Москва'  # Укажите город
 
 
@@ -24,7 +23,7 @@ dp = Dispatcher()
 
 
 async def get_weather(city: str) -> str:
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
