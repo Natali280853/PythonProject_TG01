@@ -55,22 +55,9 @@ async def cmd_dynamic(message: Message):
     ])
     await message.answer("Нажмите на кнопку:", reply_markup=markup)
 
-# @dp.callback_query(F.callback_data == "show_more")
-# async def show_more(callback: CallbackQuery):
-#     markup = InlineKeyboardMarkup(inline_keyboard=[
-#     [InlineKeyboardButton(text="Опция 1", callback_data="option_1")],
-#     [InlineKeyboardButton(text="Опция 2", callback_data="option_2")]
-#     ])
-#     await callback.message.edit_text('aa', reply_markup=markup)
-#     await callback.answer()  # Убираем кружок загрузки
 
 kb_option = ["Опция 1", "Опция 2"]
 
-# async def opt_keyboard():
-#     keyboard = ReplyKeyboardBuilder()
-#     for key in kb_option:
-#         keyboard.add(KeyboardButton(text=key))
-#     return keyboard.adjust(1).as_markup()
 
 async def opt_keyboard():
     keyboard = InlineKeyboardBuilder()
